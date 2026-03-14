@@ -1,8 +1,8 @@
-streamlit
-opencv-python-headless
-tensorflow-cpu
-numpy
-streamlit-webrtc
-av
-keras
+streamlit==1.35.0
+opencv-python-headless==4.8.1.78
+tensorflow-cpu==2.16.1
+numpy==1.26.4
+streamlit-webrtc==0.64.5
+av==11.0.0
+keras==3.3.3
 gdown
