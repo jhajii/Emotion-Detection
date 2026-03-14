@@ -38,13 +38,17 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 st.title("🎭 Real-Time Emotion Recognition")
-
 @st.cache_resource
 def setup_resources():
-    model = load_model("emotion_detection.h5", custom_objects={"Dense": PatchedDense}, compile=False)
+    model = load_model(
+        "emotion_detection_model.h5",
+        custom_objects={"Dense": PatchedDense},
+        compile=False
+    )
+    
     cascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+    
     return model, cascade
-
 model, face_cascade = setup_resources()
 emotion_labels = {0: "Angry", 1: "Happy", 2: "Neutral", 3: "Sad", 4: "Surprised"}
 color_map = {0: (0, 0, 255), 1: (0, 255, 0), 2: (255, 255, 255), 3: (255, 0, 0), 4: (0, 255, 255)}
